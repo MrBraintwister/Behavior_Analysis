@@ -1,20 +1,18 @@
+### librarys
+
 library(readxl)
 library(tidyverse)
 library(ggpubr)
 library(xlsx)
-
 
 ### open file
 data_path <-  "D:/Art_Exp_Data/BEH_AN/practice/New_Data/6_1_familiarity.csv"
 df <- read.csv(data_path,  header = TRUE, sep = "", quote = "\"", dec = ".", row.names=NULL)
   
 
-### compute mean
-
-rt.mean <- mean(df$RT)
-st.sd <- sd(df$RT)
-
-upper_lim <- rt.mean + (2*st.sd)
+rt.mean <- mean(df$RT) ### compute mean reaction time
+st.sd <- sd(df$RT) ### compute sd reaction time
+upper_lim <- rt.mean + (2*st.sd) ###define limits
 
 if ((rt.mean - (2*st.sd)) < 0) {
   lower_lim <- 0
